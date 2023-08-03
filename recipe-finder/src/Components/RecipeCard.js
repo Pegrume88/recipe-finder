@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
-
-  const handleSearch = () => {
-    onSearch(query);
-  };
-
+const RecipeCard = ({ recipe }) => {
   return (
-    <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
+    <div className="recipe-card">
+      <h3>{recipe.title}</h3>
+      <img src={recipe.image} alt={recipe.title} />
+      <p>Source: {recipe.source}</p>
     </div>
   );
 };
 
-export default SearchBar;
+export default RecipeCard;
