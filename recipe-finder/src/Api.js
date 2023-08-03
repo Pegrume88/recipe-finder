@@ -1,10 +1,19 @@
-const API_KEY = "c675184d8a45e55369f4a34d13cd6be0";
-const API_URL = "https://developer.edamam.com/admin/applications/1409623656538"; // Replace with your API's URL
+// api.js
+export const API_KEY = "b56cb75541d164b20a33766398a3d95e"; // Replace with your Edamam API key
+export const API_ID = "d5f7214d"; // Replace with your Edamam API ID
+export const API_URL =
+  "https://developer.edamam.com/admin/applications/1409623656538";
 
 export const searchRecipes = async (query) => {
-  const response = await fetch(
-    `${API_URL}/search?q=${query}&apiKey=${API_KEY}`
-  );
-  const data = await response.json();
-  return data.results; // Adjust this based on your API's response structure
+  try {
+    const response = await fetch(
+      "/api/admin/applications/1409623656538?q=&app_id=d5f7214d&app_key=b56cb75541d164b20a33766398a3d95e"
+    );
+
+    const data = await response.json();
+    return data.hits;
+  } catch (error) {
+    console.error("Fetch error:", error);
+    return [];
+  }
 };

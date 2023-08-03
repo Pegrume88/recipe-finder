@@ -1,3 +1,4 @@
+import "./styles.css";
 import React, { useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import RecipeList from "./Components/RecipeList";
